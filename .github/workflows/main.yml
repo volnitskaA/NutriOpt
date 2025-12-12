@@ -1,4 +1,4 @@
-name: CI/CD NutriOpt
+name: CI NutriOpt
 
 on:
   push:
@@ -12,23 +12,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Show commit author
-      run: |
-        echo "Commit author: ${{ github.actor }}"
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
 
-    - name: Build application
+    - name: Run application
       run: |
         python main.py
-
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: v1.0.${{ github.run_number }}
-        name: Release v1.0.${{ github.run_number }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
