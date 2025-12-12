@@ -13,3 +13,5 @@ best_calories = service.compare_by_calories(products)
 
 print("Найвигідніший за ціною:", best_price.name)
 print("Найвигідніший за калорійністю:", best_calories.name)
+
+# main application file
